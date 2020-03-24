@@ -28,4 +28,10 @@ public class CollectionWithMultipleElementsTestCases {
         assertEquals(FIRST_POS, BinarySearch.create().search(TEST_NUMBER_FIRST, collection).getPosition());
     }
 
+    @Test
+    void centerElementInProvidedSequenceTest(){
+        assertEquals(CENTER_POS, BinarySearch.create().search(TEST_NUMBER_CENTER, collection).getPosition());
+    }
+    
+
 }
