@@ -9,11 +9,15 @@ public class EmptyCollectionTestCases {
     private static final int EXAMPLE_KEY = 99;
 
     @Test
-    void searchInSequenceSequenceTest(){
+    void searchInNullSequenceTest(){
         collection = null;
         assertThrows(NullPointerException.class,()-> BinarySearch.create().search(EXAMPLE_KEY, collection));
     }
 
-    
+    @Test
+    void searchInZeroLengthSequenceTest(){
+        collection = new int[0];
+        assertThrows(IllegalArgumentException.class,()-> BinarySearch.create().search(EXAMPLE_KEY, collection));
+    }
 
 }
