@@ -37,4 +37,9 @@ public class CollectionWithMultipleElementsTestCases {
     void lastElementInProvidedSequenceTest(){
         assertEquals(LAST_POS, BinarySearch.create().search(TEST_NUMBER_LAST, collection).getPosition());
     }
+
+    @Test
+    void noSuchElementInSequenceTest(){
+        assertEquals(NOT_FOUND, BinarySearch.create().search(ELEMENT_NOT_IN_COLLECTION, collection).getPosition());
+    }
 }
