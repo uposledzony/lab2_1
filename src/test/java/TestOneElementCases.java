@@ -1,5 +1,4 @@
 import edu.iis.mto.bsearch.BinarySearch;
-import edu.iis.mto.bsearch.SearchResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
