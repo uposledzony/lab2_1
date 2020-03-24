@@ -24,22 +24,24 @@ public class CollectionWithMultipleElementsTestCases {
     }
 
     @Test
-    void firstElementInProvidedSequenceTest() {
+    void searchFirstElementInProvidedSequenceTest() {
         assertEquals(FIRST_POS, BinarySearch.create().search(TEST_NUMBER_FIRST, collection).getPosition());
     }
 
     @Test
-    void centerElementInProvidedSequenceTest(){
+    void searchCenterElementInProvidedSequenceTest(){
         assertEquals(CENTER_POS, BinarySearch.create().search(TEST_NUMBER_CENTER, collection).getPosition());
     }
 
     @Test
-    void lastElementInProvidedSequenceTest(){
+    void searchLastElementInProvidedSequenceTest(){
         assertEquals(LAST_POS, BinarySearch.create().search(TEST_NUMBER_LAST, collection).getPosition());
     }
 
     @Test
-    void noSuchElementInSequenceTest(){
+    void searchNoSuchElementInSequenceTest(){
         assertEquals(NOT_FOUND, BinarySearch.create().search(ELEMENT_NOT_IN_COLLECTION, collection).getPosition());
     }
+
+
 }
