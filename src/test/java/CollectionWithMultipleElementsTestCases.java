@@ -2,16 +2,18 @@ import edu.iis.mto.bsearch.BinarySearch;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static helpers.PositionMatcher.notFound;
+import static helpers.PositionMatcher.positionOf;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 public class CollectionWithMultipleElementsTestCases {
 
     private int[] collection;
-    private static final int TEST_NUMBER_FIRST =2;
+    private static final int TEST_NUMBER_FIRST = 2;
     private static final int TEST_NUMBER_CENTER = 3;
     private static final int TEST_NUMBER_LAST = 6;
     private static final int ELEMENT_NOT_IN_COLLECTION = 5;
-    private static final int NOT_FOUND = -1;
     private static final int FIRST_POS = 0;
     private static int CENTER_POS;
     private static int LAST_POS;
@@ -25,23 +27,22 @@ public class CollectionWithMultipleElementsTestCases {
 
     @Test
     void searchFirstElementInProvidedSequenceTest() {
-        assertEquals(FIRST_POS, BinarySearch.create().search(TEST_NUMBER_FIRST, collection).getPosition());
+        assertThat(BinarySearch.create().search(TEST_NUMBER_FIRST, collection).getPosition(),is(positionOf(FIRST_POS)));
     }
 
     @Test
     void searchCenterElementInProvidedSequenceTest(){
-        assertEquals(CENTER_POS, BinarySearch.create().search(TEST_NUMBER_CENTER, collection).getPosition());
+        assertThat(BinarySearch.create().search(TEST_NUMBER_CENTER, collection).getPosition(),is(positionOf(CENTER_POS)));
     }
 
     @Test
     void searchLastElementInProvidedSequenceTest(){
-        assertEquals(LAST_POS, BinarySearch.create().search(TEST_NUMBER_LAST, collection).getPosition());
+        assertThat(BinarySearch.create().search(TEST_NUMBER_LAST, collection).getPosition(),is(positionOf(LAST_POS)));
     }
 
     @Test
     void searchNoSuchElementInSequenceTest(){
-        assertEquals(NOT_FOUND, BinarySearch.create().search(ELEMENT_NOT_IN_COLLECTION, collection).getPosition());
+        assertThat(BinarySearch.create().search(ELEMENT_NOT_IN_COLLECTION, collection).getPosition(),is(notFound()));
     }
-
 
 }

@@ -2,9 +2,13 @@ import edu.iis.mto.bsearch.BinarySearch;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static helpers.PositionMatcher.notFound;
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static helpers.PositionMatcher.positionOf;
 
 public class TestOneElementCases {
+
     private int[] collection;
     private static final int TEST_NUMBER = 6;
     private static final int ELEMENT_NOT_IN_COLLECTION = 5;
@@ -19,12 +23,12 @@ public class TestOneElementCases {
 
     @Test
     void searchElementInProvidedSequenceTest(){
-        assertEquals(POS,BinarySearch.create().search(TEST_NUMBER, collection).getPosition());
+        assertThat(BinarySearch.create().search(TEST_NUMBER, collection).getPosition(),is(positionOf(POS)));
     }
 
     @Test
     void searchElementNotInProvidedSequenceTest(){
-        assertEquals(NOT_FOUND, BinarySearch.create().search(ELEMENT_NOT_IN_COLLECTION, collection).getPosition());
+        assertThat(BinarySearch.create().search(ELEMENT_NOT_IN_COLLECTION, collection).getPosition(),is(notFound()));
     }
-    
+
 }

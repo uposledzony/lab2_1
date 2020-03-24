@@ -15,7 +15,7 @@ public class EmptyCollectionTestCases {
     }
 
     @Test
-    void searchInZeroLengthSequenceTest(){
+    void searchInEmptySequenceTest(){
         collection = new int[0];
         assertThrows(IllegalArgumentException.class,()-> BinarySearch.create().search(EXAMPLE_KEY, collection));
     }
